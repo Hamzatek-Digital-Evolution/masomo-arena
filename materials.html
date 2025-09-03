@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Materials | Masomo Arena</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Navbar -->
+  <nav class="bg-orange-500 text-white shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold">Masomo Arena</h1>
+      <ul class="flex space-x-6">
+        <li><a href="index.html" class="hover:text-blue-200">Home</a></li>
+        <li><a href="materials.html" class="hover:text-blue-200 font-semibold">Materials</a></li>
+        <li><a href="contact.html" class="hover:text-blue-200">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-gradient-to-r from-orange-500 to-blue-500 text-white py-12">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-4">Learning Materials</h2>
+      <p class="text-lg">Browse notes, guides, and revision kits organized by CBC, JSS, and SSS levels.</p>
+    </div>
+  </header>
+
+  <!-- Tabs -->
+  <div class="max-w-5xl mx-auto mt-10 px-4">
+    <div class="flex justify-center space-x-6 border-b-2 border-gray-200">
+      <button class="tab-btn py-2 px-4 text-lg font-semibold text-gray-600 border-b-4 border-transparent hover:text-orange-500" data-level="CBC">CBC</button>
+      <button class="tab-btn py-2 px-4 text-lg font-semibold text-gray-600 border-b-4 border-transparent hover:text-orange-500" data-level="JSS">JSS</button>
+      <button class="tab-btn py-2 px-4 text-lg font-semibold text-gray-600 border-b-4 border-transparent hover:text-orange-500" data-level="SSS">SSS</button>
+    </div>
+
+    <!-- Grade Filters -->
+    <div id="grade-filters" class="flex flex-wrap gap-2 justify-center mt-6"></div>
+
+    <!-- Materials Grid -->
+    <div id="materials-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"></div>
+  </div>
+
+  <script>
+    let materials = [];
+    let currentLevel = "CBC";
+    let currentGrade = null;
+
+    // Load materials.json
+    async function fetchMaterials() {
+      const res = await axios.get("materials.json");
+      materials = res.data;
+      renderGrades();
+      renderMaterials();
+    }
+
+    // Render grade buttons dynamically
+    function renderGrades() {
+      const gradeFilters = document.getElementById("grade-filters");
+      gradeFilters.innerHTML = "";
+
+      const grades = [...new Set(materials.filter(m => m.level === currentLevel).map(m => m.grade))];
+      
+      grades.forEach(g => {
+        const btn = document.createElement("button");
+        btn.className = "px-4 py-2 rounded-full border border-orange-500 text-orange-600 hover:bg-orange-500 hover:text-white transition";
+        btn.innerText = g;
+        btn.onclick = () => {
+          currentGrade = g;
+          renderMaterials();
+        };
+        gradeFilters.appendChild(btn);
+      });
+    }
+
+    // Render material cards
+    function renderMaterials() {
+      const grid = document.getElementById("materials-grid");
+      grid.innerHTML = "";
+
+      const filtered = materials.filter(m => m.level === currentLevel && (!currentGrade || m.grade === currentGrade));
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<p class="text-gray-500 text-center col-span-3">No materials available for this grade yet.</p>`;
+        return;
+      }
+
+      filtered.forEach(m => {
+        const card = document.createElement("div");
+        card.className = "bg-white p-6 rounded-xl shadow-md border border-gray-200 flex flex-col justify-between";
+
+        card.innerHTML = `
+          <h3 class="text-xl font-semibold text-orange-600">${m.title}</h3>
+          <p class="mt-2 text-gray-700"><strong>Subject:</strong> ${m.subject}</p>
+          <p class="text-gray-700"><strong>Grade:</strong> ${m.grade}</p>
+          <a href="contact.html?material=${encodeURIComponent(m.title)}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Contact to Purchase</a>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    // Tab switching
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("text-orange-500", "border-orange-500"));
+        btn.classList.add("text-orange-500", "border-orange-500");
+        currentLevel = btn.dataset.level;
+        currentGrade = null;
+        renderGrades();
+        renderMaterials();
+      });
+    });
+
+    fetchMaterials();
+  </script>
+</body>
+</html>

@@ -1,0 +1,306 @@
+<!--
+File: index.html
+Project: Masomo Arena (frontend)
+Location: /frontend/index.html
+Description: Modern, responsive homepage built with TailwindCSS (CDN). Primary color: orange; Accent color: blue.
+
+How to preview:
+  1. Put this file in a folder (e.g. /frontend).
+  2. (Optional) Add /previews and /assets folders for images used as placeholders.
+  3. Run a static server in that folder (recommended):
+       python -m http.server 8000
+     then open http://localhost:8000
+     OR simply open index.html in your browser (Tailwind CDN will work for prototyping).
+
+Notes:
+  - This uses the Tailwind CDN for fast prototyping. For production you should switch to a build process and a tailwind.config.js file.
+  - Colors are extended using the Tailwind CDN inline config so you can use classes like bg-masomo-orange.
+  - Next recommended files to create: materials.html, contact.html, materials.json (catalog), upload.html (teacher upload form).
+-->
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Masomo Arena — Buy and request quality primary & high school learning materials from verified teachers in Kenya." />
+  <meta name="theme-color" content="#f97316" />
+  <title>Masomo Arena — Home</title>
+
+  <!-- Tailwind CDN with inline config for custom colors -->
+  <script>
+    tailwind = window.tailwind;
+    tailwindConfig = {
+      theme: {
+        extend: {
+          colors: {
+            'masomo-orange': '#f97316', /* main brand orange */
+            'masomo-blue': '#1d4ed8'    /* accent blue */
+          }
+        }
+      }
+    };
+    // The tailwind CDN will read the `tailwind.config` variable if set before loading.
+    window.tailwind = { config: tailwindConfig };
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Simple baseline styles for better preview -->
+  <style>
+    /* small tweak: limit text motion for accessibility */
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+    /* Fallback image color for placeholders */
+    .placeholder { background: linear-gradient(135deg,#fff7ed,#eef2ff); }
+  </style>
+</head>
+<body class="bg-gray-50 text-gray-800 antialiased">
+
+  <!-- NAV -->
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="flex items-center gap-3">
+          <!-- Simple logo mark -->
+          <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-masomo-orange text-white font-bold">MA</div>
+          <div>
+            <span class="block text-lg font-extrabold">Masomo Arena</span>
+            <span class="block text-xs text-gray-500">Quality learning materials — Primary & High School</span>
+          </div>
+        </a>
+
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="materials.html" class="text-sm font-medium hover:text-masomo-blue">Browse Materials</a>
+          <a href="#about" class="text-sm font-medium hover:text-masomo-blue">About</a>
+          <a href="#how" class="text-sm font-medium hover:text-masomo-blue">How it works</a>
+          <a href="contact.html" class="text-sm font-medium hover:text-masomo-blue">Contact</a>
+          <a href="upload.html" class="ml-3 inline-flex items-center gap-2 px-4 py-2 rounded-md bg-masomo-orange text-white text-sm font-semibold shadow-sm hover:opacity-95">Become a Teacher</a>
+        </nav>
+
+        <!-- Mobile menu button -->
+        <div class="md:hidden">
+          <button id="menu-btn" aria-expanded="false" aria-controls="mobile-menu" class="p-2 rounded-md inline-flex items-center justify-center text-gray-700 hover:bg-gray-100">
+            <svg id="icon-open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="icon-close" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden hidden border-t">
+      <div class="px-6 py-4 space-y-3">
+        <a href="materials.html" class="block">Browse Materials</a>
+        <a href="#about" class="block">About</a>
+        <a href="#how" class="block">How it works</a>
+        <a href="contact.html" class="block">Contact</a>
+        <a href="upload.html" class="block bg-masomo-orange text-white px-4 py-2 rounded-md inline-block mt-2">Become a Teacher</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main>
+    <section class="bg-white">
+      <div class="max-w-7xl mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+        <!-- Left: copy -->
+        <div>
+          <p class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-masomo-orange/10 text-masomo-orange text-sm font-semibold w-max">Trusted teacher materials • Kenya</p>
+          <h1 class="mt-6 text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight">Masomo Arena — discover, request, and get high‑quality learning materials</h1>
+          <p class="mt-4 text-gray-600 max-w-xl">Browse teacher-created notes, past papers, lesson plans and more. Contact the teacher directly to request the full material — no logins required.</p>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-3">
+            <a href="materials.html" class="inline-flex items-center justify-center px-6 py-3 rounded-md bg-masomo-orange text-white font-semibold shadow hover:opacity-95">Browse Materials</a>
+            <a href="#how" class="inline-flex items-center justify-center px-6 py-3 rounded-md border border-masomo-blue text-masomo-blue font-semibold">How it works</a>
+          </div>
+
+          <!-- trust row -->
+          <div class="mt-8 flex flex-wrap items-center gap-6 text-sm text-gray-500">
+            <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-masomo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg> Verified teachers</div>
+            <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-masomo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l3 8 4-16 3 8h4"/></svg> Primary & Secondary</div>
+            <div class="flex items-center gap-2"><svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-masomo-blue" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c2.21 0 4-1.343 4-3s-1.79-3-4-3-4 1.343-4 3 1.79 3 4 3zM6 20v-1a4 4 0 014-4h4a4 4 0 014 4v1"/></svg> Local & relevant</div>
+          </div>
+        </div>
+
+        <!-- Right: illustrative card -->
+        <div class="relative">
+          <div class="rounded-2xl shadow-2xl overflow-hidden bg-gradient-to-br from-masomo-orange/10 to-masomo-blue/5 p-6">
+            <div class="flex items-start justify-between gap-6">
+              <div class="w-24 h-24 rounded-lg placeholder flex items-center justify-center text-sm font-medium">Preview</div>
+              <div class="flex-1">
+                <h3 class="font-semibold text-lg">Mathematics — Form 2</h3>
+                <p class="mt-1 text-sm text-gray-600">Complete topic notes: Algebra (equations, simultaneous equations, graphs). By Mr. Ali — Nairobi</p>
+
+                <div class="mt-4 flex items-center gap-3">
+                  <a href="contact.html?id=1" class="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-masomo-orange text-white font-medium">Contact Teacher</a>
+                  <a href="materials.html?subject=Mathematics" class="inline-flex items-center gap-2 px-4 py-2 rounded-md border border-gray-200">View similar</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- subtle tags -->
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span class="text-xs px-2 py-1 rounded bg-white/60">Form 2</span>
+              <span class="text-xs px-2 py-1 rounded bg-white/60">Mathematics</span>
+              <span class="text-xs px-2 py-1 rounded bg-white/60">Notes · PDF</span>
+            </div>
+          </div>
+
+          <!-- decorative shape -->
+          <svg class="absolute -right-8 -bottom-8 opacity-20" width="220" height="220" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#f97316" stop-opacity="0.6"/><stop offset="100%" stop-color="#1d4ed8" stop-opacity="0.6"/></linearGradient></defs><circle cx="100" cy="100" r="80" fill="url(#g1)"/></svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBJECT CATEGORIES -->
+    <section id="categories" class="max-w-7xl mx-auto px-6 py-12">
+      <h2 class="text-2xl font-extrabold">Subjects & Levels</h2>
+      <p class="text-gray-600 mt-2">Quickly filter by subject or level — tap to browse materials.</p>
+
+      <div class="mt-6 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        <!-- each card links to materials.html?subject=... -->
+        <a href="materials.html?subject=Mathematics" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-masomo-orange text-white font-bold">M</div>
+          <div>
+            <div class="text-sm font-semibold">Mathematics</div>
+            <div class="text-xs text-gray-500">Form 1–4</div>
+          </div>
+        </a>
+
+        <a href="materials.html?subject=English" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-masomo-blue text-white font-bold">E</div>
+          <div>
+            <div class="text-sm font-semibold">English</div>
+            <div class="text-xs text-gray-500">Primary & Secondary</div>
+          </div>
+        </a>
+
+        <a href="materials.html?subject=Kiswahili" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-yellow-400 text-white font-bold">K</div>
+          <div>
+            <div class="text-sm font-semibold">Kiswahili</div>
+            <div class="text-xs text-gray-500">Primary & Secondary</div>
+          </div>
+        </a>
+
+        <a href="materials.html?subject=Science" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-green-500 text-white font-bold">S</div>
+          <div>
+            <div class="text-sm font-semibold">Science</div>
+            <div class="text-xs text-gray-500">Biology · Chemistry · Physics</div>
+          </div>
+        </a>
+
+        <a href="materials.html?subject=CRE" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-purple-500 text-white font-bold">C</div>
+          <div>
+            <div class="text-sm font-semibold">CRE / R.E.</div>
+            <div class="text-xs text-gray-500">Primary & Secondary</div>
+          </div>
+        </a>
+
+        <a href="materials.html?subject=Revision" class="flex items-center gap-3 p-3 rounded-lg bg-white shadow-sm hover:shadow-md">
+          <div class="w-12 h-12 rounded-lg flex items-center justify-center bg-gray-400 text-white font-bold">P</div>
+          <div>
+            <div class="text-sm font-semibold">Past Papers</div>
+            <div class="text-xs text-gray-500">KCSE · KCPE</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how" class="bg-gray-50 py-12">
+      <div class="max-w-5xl mx-auto px-6 text-center">
+        <h2 class="text-2xl font-extrabold">How Masomo Arena works</h2>
+        <p class="text-gray-600 mt-2">Simple three-step flow — no accounts required.</p>
+
+        <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+          <div class="p-6 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 rounded-md bg-masomo-orange text-white flex items-center justify-center font-bold">1</div>
+            <h3 class="mt-4 font-semibold">Browse catalog</h3>
+            <p class="mt-2 text-sm text-gray-600">Find the subject, level and teacher that suits you.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 rounded-md bg-masomo-blue text-white flex items-center justify-center font-bold">2</div>
+            <h3 class="mt-4 font-semibold">Contact the teacher</h3>
+            <p class="mt-2 text-sm text-gray-600">Tap "Contact Teacher" to open a pre-filled form; send your request directly.</p>
+          </div>
+
+          <div class="p-6 bg-white rounded-lg shadow-sm">
+            <div class="w-12 h-12 rounded-md bg-gray-700 text-white flex items-center justify-center font-bold">3</div>
+            <h3 class="mt-4 font-semibold">Receive the material</h3>
+            <p class="mt-2 text-sm text-gray-600">Teachers respond privately by email or WhatsApp with the full file.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white border-t mt-12">
+      <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div>
+          <a href="index.html" class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center bg-masomo-orange text-white font-bold">MA</div>
+            <div>
+              <div class="font-extrabold">Masomo Arena</div>
+              <div class="text-sm text-gray-500">Trusted teacher materials • Kenya</div>
+            </div>
+          </a>
+        </div>
+
+        <div>
+          <div class="font-semibold">Quick links</div>
+          <ul class="mt-3 space-y-2 text-sm text-gray-600">
+            <li><a href="materials.html">Browse Materials</a></li>
+            <li><a href="upload.html">Become a Teacher</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="font-semibold">Contact</div>
+          <div class="mt-3 text-sm text-gray-600">Email: <a href="mailto:hello@masomoarena.example" class="text-masomo-blue">hello@masomoarena.example</a></div>
+          <div class="mt-4 text-sm text-gray-600">Built for Kenyan learners. © <span id="year"></span> Masomo Arena</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Set year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const iconOpen = document.getElementById('icon-open');
+    const iconClose = document.getElementById('icon-close');
+
+    menuBtn.addEventListener('click', () => {
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true' || false;
+      menuBtn.setAttribute('aria-expanded', !expanded);
+      mobileMenu.classList.toggle('hidden');
+      iconOpen.classList.toggle('hidden');
+      iconClose.classList.toggle('hidden');
+    });
+
+    // Helpful: try to fetch materials.json if present and console.log count (non-blocking)
+    (async function(){
+      try {
+        const resp = await fetch('materials.json');
+        if (!resp.ok) throw new Error('no materials.json');
+        const items = await resp.json();
+        console.log('Masomo Arena: materials.json found —', items.length, 'items');
+        // Future: you can use this data to dynamically render "popular materials" on the homepage.
+      } catch (err) {
+        // materials.json not present — fine, homepage will show static placeholders for now.
+        console.log('Masomo Arena: materials.json not found — using static homepage placeholders.');
+      }
+    })();
+  </script>
+</body>
+</html>

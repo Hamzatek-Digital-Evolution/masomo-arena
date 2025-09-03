@@ -1,0 +1,45 @@
+[
+  {
+    "id": 1,
+    "title": "Grade 4 Mathematics Workbook",
+    "subject": "Mathematics",
+    "level": "CBC",
+    "grade": "Grade 4"
+  },
+  {
+    "id": 2,
+    "title": "Grade 6 Kiswahili Notes",
+    "subject": "Kiswahili",
+    "level": "CBC",
+    "grade": "Grade 6"
+  },
+  {
+    "id": 3,
+    "title": "Grade 8 Science Revision",
+    "subject": "Science",
+    "level": "JSS",
+    "grade": "Grade 8"
+  },
+  {
+    "id": 4,
+    "title": "Form 2 English Insha Guide",
+    "subject": "English",
+    "level": "SSS",
+    "grade": "Form 2"
+  },
+  {
+    "id": 5,
+    "title": "Form 3 Physics Revision Kit",
+    "subject": "Physics",
+    "level": "SSS",
+    "grade": "Form 3"
+  }
+  ,
+  {
+    "id": 6,
+    "title": "Form 4 Physics Revision Kit",
+    "subject": "Physics",
+    "level": "SSS",
+    "grade": "Form 4"
+  }
+]
