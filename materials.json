@@ -1,45 +1,66 @@
 [
-  {
-    "id": 1,
-    "title": "Grade 4 Mathematics Workbook",
-    "subject": "Mathematics",
-    "level": "CBC",
-    "grade": "Grade 4"
-  },
-  {
-    "id": 2,
-    "title": "Grade 6 Kiswahili Notes",
-    "subject": "Kiswahili",
-    "level": "CBC",
-    "grade": "Grade 6"
-  },
-  {
-    "id": 3,
-    "title": "Grade 8 Science Revision",
-    "subject": "Science",
-    "level": "JSS",
-    "grade": "Grade 8"
-  },
-  {
-    "id": 4,
-    "title": "Form 2 English Insha Guide",
-    "subject": "English",
-    "level": "SSS",
-    "grade": "Form 2"
-  },
-  {
-    "id": 5,
-    "title": "Form 3 Physics Revision Kit",
-    "subject": "Physics",
-    "level": "SSS",
-    "grade": "Form 3"
-  }
-  ,
-  {
-    "id": 6,
-    "title": "Form 4 Physics Revision Kit",
-    "subject": "Physics",
-    "level": "SSS",
-    "grade": "Form 4"
-  }
+  { "id": 1, "title": "PP1 Mathematics Workbook", "subject": "Mathematics", "level": "CBC", "grade": "PP1", "teacher": "Mr. Ali" },
+  { "id": 2, "title": "PP1 English Activities", "subject": "English", "level": "CBC", "grade": "PP1", "teacher": "Mr. Ali" },
+  { "id": 3, "title": "PP1 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "PP1", "teacher": "Mr. Ali", "previewImage": "https://via.placeholder.com/150x200?text=Maths",
+    "fileUrl": "https://drive.google.com/file/d/EXAMPLE_ID/view?usp=sharing" },
+
+  { "id": 4, "title": "PP2 Mathematics Workbook", "subject": "Mathematics", "level": "CBC", "grade": "PP2", "teacher": "Mr. Ali", "previewImage": "https://via.placeholder.com/150x200?text=Maths",
+    "fileUrl": "https://drive.google.com/file/d/EXAMPLE_ID/view?usp=sharing" },
+  { "id": 5, "title": "PP2 English Activities", "subject": "English", "level": "CBC", "grade": "PP2", "teacher": "Mr. Ali" },
+  { "id": 6, "title": "PP2 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "PP2", "teacher": "Mr. Ali", "previewImage": "https://via.placeholder.com/150x200?text=Maths",
+    "fileUrl": "https://drive.google.com/file/d/EXAMPLE_ID/view?usp=sharing" },
+
+  { "id": 7, "title": "Grade 1 Mathematics Notes", "subject": "Mathematics", "level": "CBC", "grade": "Grade 1", "teacher": "Mr. Ali" },
+  { "id": 8, "title": "Grade 1 English Reader", "subject": "English", "level": "CBC", "grade": "Grade 1", "teacher": "Mr. Ali" },
+  { "id": 9, "title": "Grade 1 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "Grade 1", "teacher": "Mr. Ali" },
+
+  { "id": 10, "title": "Grade 2 Mathematics Workbook", "subject": "Mathematics", "level": "CBC", "grade": "Grade 2", "teacher": "Mr. Ali" },
+  { "id": 11, "title": "Grade 2 English Notes", "subject": "English", "level": "CBC", "grade": "Grade 2", "teacher": "Mr. Ali" },
+  { "id": 12, "title": "Grade 2 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "Grade 2", "teacher": "Mr. Ali" },
+
+  { "id": 13, "title": "Grade 3 Mathematics Notes", "subject": "Mathematics", "level": "CBC", "grade": "Grade 3", "teacher": "Mr. Ali" },
+  { "id": 14, "title": "Grade 3 English Workbook", "subject": "English", "level": "CBC", "grade": "Grade 3", "teacher": "Mr. Ali" },
+  { "id": 15, "title": "Grade 3 Science Activities", "subject": "Science", "level": "CBC", "grade": "Grade 3", "teacher": "Mr. Ali" },
+
+  { "id": 16, "title": "Grade 4 Mathematics Workbook", "subject": "Mathematics", "level": "CBC", "grade": "Grade 4", "teacher": "Mr. Ali" },
+  { "id": 17, "title": "Grade 4 English Notes", "subject": "English", "level": "CBC", "grade": "Grade 4", "teacher": "Mr. Ali" },
+  { "id": 18, "title": "Grade 4 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "Grade 4", "teacher": "Mr. Ali" },
+
+  { "id": 19, "title": "Grade 5 Mathematics Notes", "subject": "Mathematics", "level": "CBC", "grade": "Grade 5", "teacher": "Mr. Ali" },
+  { "id": 20, "title": "Grade 5 English Workbook", "subject": "English", "level": "CBC", "grade": "Grade 5", "teacher": "Mr. Ali" },
+  { "id": 21, "title": "Grade 5 Science Activities", "subject": "Science", "level": "CBC", "grade": "Grade 5", "teacher": "Mr. Ali" },
+
+  { "id": 22, "title": "Grade 6 Mathematics Notes", "subject": "Mathematics", "level": "CBC", "grade": "Grade 6", "teacher": "Mr. Ali" },
+  { "id": 23, "title": "Grade 6 English Workbook", "subject": "English", "level": "CBC", "grade": "Grade 6", "teacher": "Mr. Ali" },
+  { "id": 24, "title": "Grade 6 Kiswahili Workbook", "subject": "Kiswahili", "level": "CBC", "grade": "Grade 6", "teacher": "Mr. Ali" },
+
+  { "id": 25, "title": "Grade 7 Mathematics Revision", "subject": "Mathematics", "level": "JSS", "grade": "Grade 7", "teacher": "Mr. Ali" },
+  { "id": 26, "title": "Grade 7 English Workbook", "subject": "English", "level": "JSS", "grade": "Grade 7", "teacher": "Mr. Ali" },
+  { "id": 27, "title": "Grade 7 Integrated Science Notes", "subject": "Science", "level": "JSS", "grade": "Grade 7", "teacher": "Mr. Ali" },
+
+  { "id": 28, "title": "Grade 8 Mathematics Notes", "subject": "Mathematics", "level": "JSS", "grade": "Grade 8", "teacher": "Mr. Ali" },
+  { "id": 29, "title": "Grade 8 Kiswahili Workbook", "subject": "Kiswahili", "level": "JSS", "grade": "Grade 8", "teacher": "Mr. Ali" },
+  { "id": 30, "title": "Grade 8 Science Revision", "subject": "Science", "level": "JSS", "grade": "Grade 8", "teacher": "Mr. Ali" },
+
+  { "id": 31, "title": "Grade 9 Mathematics Revision", "subject": "Mathematics", "level": "JSS", "grade": "Grade 9", "teacher": "Mr. Ali" },
+  { "id": 32, "title": "Grade 9 English Workbook", "subject": "English", "level": "JSS", "grade": "Grade 9", "teacher": "Mr. Ali" },
+  { "id": 33, "title": "Grade 9 Kiswahili Workbook", "subject": "Kiswahili", "level": "JSS", "grade": "Grade 9", "teacher": "Mr. Ali" },
+
+  { "id": 34, "title": "Form 1 Mathematics Notes", "subject": "Mathematics", "level": "SSS", "grade": "Form 1", "teacher": "Mr. Ali" },
+  { "id": 35, "title": "Form 1 English Notes", "subject": "English", "level": "SSS", "grade": "Form 1", "teacher": "Mr. Ali" },
+  { "id": 36, "title": "Form 1 Kiswahili Notes", "subject": "Kiswahili", "level": "SSS", "grade": "Form 1", "teacher": "Mr. Ali" },
+
+  { "id": 37, "title": "Form 2 Mathematics Notes", "subject": "Mathematics", "level": "SSS", "grade": "Form 2", "teacher": "Mr. Ali" },
+  { "id": 38, "title": "Form 2 English Insha Guide", "subject": "English", "level": "SSS", "grade": "Form 2", "teacher": "Mr. Ali" },
+  { "id": 39, "title": "Form 2 Physics Revision", "subject": "Physics", "level": "SSS", "grade": "Form 2", "teacher": "Mr. Ali" },
+
+  { "id": 40, "title": "Form 3 Mathematics Revision Kit", "subject": "Mathematics", "level": "SSS", "grade": "Form 3", "teacher": "Mr. Ali" },
+  { "id": 41, "title": "Form 3 English Notes", "subject": "English", "level": "SSS", "grade": "Form 3", "teacher": "Mr. Ali" },
+  { "id": 42, "title": "Form 3 Physics Notes", "subject": "Physics", "level": "SSS", "grade": "Form 3", "teacher": "Mr. Ali" },
+
+  { "id": 43, "title": "Form 4 Mathematics Past Papers", "subject": "Mathematics", "level": "SSS", "grade": "Form 4", "teacher": "Mr. Ali" },
+  { "id": 44, "title": "Form 4 English Revision Kit", "subject": "English", "level": "SSS", "grade": "Form 4", "teacher": "Mr. Ali" },
+  { "id": 45, "title": "Form 4 Kiswahili Past Papers", "subject": "Kiswahili", "level": "SSS", "grade": "Form 4", "previewImage": "https://via.placeholder.com/150x200?text=Maths",
+    "fileUrl": "https://drive.google.com/file/d/EXAMPLE_ID/view?usp=sharing", "teacher": "Mr. Ali"  }
+
 ]

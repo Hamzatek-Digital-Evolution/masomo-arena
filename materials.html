@@ -94,9 +94,14 @@
 
         card.innerHTML = `
           <h3 class="text-xl font-semibold text-orange-600">${m.title}</h3>
+          ${m.previewImage ? `<img src="${m.previewImage}" alt="${m.title}" class="mt-4 rounded-lg shadow-sm">` : ''}
           <p class="mt-2 text-gray-700"><strong>Subject:</strong> ${m.subject}</p>
           <p class="text-gray-700"><strong>Grade:</strong> ${m.grade}</p>
-          <a href="contact.html?material=${encodeURIComponent(m.title)}" class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">Contact to Purchase</a>
+          <a href="contact.html?id=${m.id}" 
+   class="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-600 transition">
+   Contact to Purchase
+</a>
+           
         `;
         grid.appendChild(card);
       });

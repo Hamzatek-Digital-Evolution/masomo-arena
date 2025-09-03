@@ -16,7 +16,7 @@
 <body class="bg-gradient-to-br from-orange-100 via-white to-blue-100 min-h-screen flex items-center justify-center p-6">
 
   <div class="w-full max-w-2xl bg-white shadow-2xl rounded-2xl p-8">
-    <h1 class="text-3xl font-bold text-center mb-6 text-orange-600">📩 Contact</h1>
+    <h1 class="text-3xl font-bold text-center mb-6 text-orange-600">📩 Contact / Request Access</h1>
 
     <!-- Contact Form -->
     <form id="contactForm" class="space-y-5">
@@ -42,7 +42,7 @@
           class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-400">
           <option value="">-- Select --</option>
           <option value="contact">General Contact</option>
-          <option value="material">Inquiry about Material</option>
+          <option value="material">Request Access to Material</option>
         </select>
       </div>
 
@@ -64,10 +64,14 @@
 
         <div>
           <label class="block mb-1 font-medium">Level</label>
-          <select id="level" name="level"
-            class="w-full border rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-400">
-            <option value="">-- Select Level --</option>
-          </select>
+          <input type="text" id="level" name="level" readonly
+            class="w-full border rounded-lg px-4 py-2 bg-gray-100">
+        </div>
+
+        <div>
+          <label class="block mb-1 font-medium">Teacher</label>
+          <input type="text" id="teacher" name="teacher" readonly
+            class="w-full border rounded-lg px-4 py-2 bg-gray-100">
         </div>
       </div>
 
@@ -103,18 +107,12 @@
     const materialSection = document.getElementById("materialSection");
     const materialSelect = document.getElementById("materialSelect");
     const subjectInput = document.getElementById("subject");
-    const levelSelect = document.getElementById("level");
+    const levelInput = document.getElementById("level");
+    const teacherInput = document.getElementById("teacher");
     const messageBox = document.getElementById("message");
     const submitBtn = document.getElementById("submitBtn");
     const btnText = document.getElementById("btnText");
     const loadingSpinner = document.getElementById("loadingSpinner");
-
-    // Kenyan levels (CBC + JSS + SSS)
-    const levels = {
-      "CBC": ["Grade 1","Grade 2","Grade 3","Grade 4","Grade 5","Grade 6"],
-      "JSS": ["Grade 7","Grade 8","Grade 9"],
-      "SSS": ["Form 2","Form 3","Form 4"]
-    };
 
     // Show/hide material section
     inquiryType.addEventListener("change", () => {
@@ -130,13 +128,15 @@
       // Fill dropdown
       materials.forEach(m => {
         const opt = document.createElement("option");
-        opt.value = m.title;
+        opt.value = m.id;
         opt.textContent = m.title;
         opt.dataset.subject = m.subject;
+        opt.dataset.level = m.grade + " (" + m.level + ")";
+        opt.dataset.teacher = m.teacher;
         materialSelect.appendChild(opt);
       });
 
-      // Auto-select from ?id=
+      // Auto-select from ?id= in URL
       const params = new URLSearchParams(window.location.search);
       const id = params.get("id");
       if (id) {
@@ -144,37 +144,22 @@
         if (material) {
           inquiryType.value = "material";
           inquiryType.dispatchEvent(new Event("change"));
-          materialSelect.value = material.title;
+          materialSelect.value = material.id;
           materialSelect.dispatchEvent(new Event("change"));
         }
       }
     }
 
-    // Update subject + levels on material change
+    // Update subject + teacher + level when material selected
     materialSelect.addEventListener("change", () => {
       const selected = materialSelect.selectedOptions[0];
       if (selected) {
         subjectInput.value = selected.dataset.subject;
+        levelInput.value = selected.dataset.level;
+        teacherInput.value = selected.dataset.teacher;
 
-        levelSelect.innerHTML = `<option value="">-- Select Level --</option>`;
-        [...levels.CBC, ...levels.JSS, ...levels.SSS].forEach(l => {
-          const opt = document.createElement("option");
-          opt.value = l;
-          opt.textContent = l;
-          levelSelect.appendChild(opt);
-        });
-      }
-      messageBox.value = "";
-    });
-
-    // Auto-fill message on level select
-    levelSelect.addEventListener("change", () => {
-      const material = materialSelect.value;
-      const subject = subjectInput.value;
-      const level = levelSelect.value;
-
-      if (material && subject && level) {
-        messageBox.value = `Hello,\n\nI am interested in the material titled "${material}" for ${subject} at ${level} level. Please provide more details.\n\nThank you.`;
+        // Auto-fill message
+        messageBox.value = `Hello,\n\nI am interested in the material titled "${selected.textContent}" (${selected.dataset.subject}, ${selected.dataset.level}) created by ${selected.dataset.teacher}. Could you please provide access?\n\nThank you.`;
       }
     });
 
