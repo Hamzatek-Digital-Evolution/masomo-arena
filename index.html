@@ -1,22 +1,3 @@
-<!--
-File: index.html
-Project: Masomo Arena (frontend)
-Location: /frontend/index.html
-Description: Modern, responsive homepage built with TailwindCSS (CDN). Primary color: orange; Accent color: blue.
-
-How to preview:
-  1. Put this file in a folder (e.g. /frontend).
-  2. (Optional) Add /previews and /assets folders for images used as placeholders.
-  3. Run a static server in that folder (recommended):
-       python -m http.server 8000
-     then open http://localhost:8000
-     OR simply open index.html in your browser (Tailwind CDN will work for prototyping).
-
-Notes:
-  - This uses the Tailwind CDN for fast prototyping. For production you should switch to a build process and a tailwind.config.js file.
-  - Colors are extended using the Tailwind CDN inline config so you can use classes like bg-masomo-orange.
-  - Next recommended files to create: materials.html, contact.html, materials.json (catalog), upload.html (teacher upload form).
--->
 
 <!doctype html>
 <html lang="en">
@@ -36,8 +17,8 @@ Notes:
   <meta name="twitter:description" content="Buy and request quality primary & high school learning materials from verified teachers in Kenya." />
   <meta name="twitter:image" content="https://masomoarena.netlify.app/masomoarena.png" />
   <meta name="theme-color" content="#f97316" />
-  <link rel="icon" href="/masomo.png"/>
-  <link rel="apple-touch-icon" href="masomoarena.png" />
+  <link rel="icon" href="masomoarena.jpg" />
+  
   <title>Masomo Arena — Home</title>
 
   <!-- Tailwind CDN with inline config for custom colors -->
@@ -231,7 +212,7 @@ Notes:
 
         <div class="mt-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
           <div class="p-6 bg-white rounded-lg shadow-sm">
-            <div class="w-12 h-12 rounded-md bg-orange text-white flex items-center justify-center font-bold">1</div>
+            <div class="w-12 h-12 rounded-md bg-orange-500 text-white flex items-center justify-center font-bold">1</div>
             <h3 class="mt-4 font-semibold">Browse catalog</h3>
             <p class="mt-2 text-sm text-gray-600">Find the subject, level and teacher that suits you.</p>
           </div>
@@ -253,20 +234,20 @@ Notes:
 
     <!-- FOOTER -->
   <!-- FOOTER -->
-    <footer class="bg-white border-t mt-12">
+    <footer class="bg-gray-700 text-white border-t mt-12">
       <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
         <div>
           <a href="index.html" class="flex items-center gap-3">
             <img src="masomoarena.png" alt="Masomo Arena logo" class="w-10 h-10 rounded-lg  p-1" />
             <div>
               <div class="font-extrabold">Masomo Arena</div>
-              <div class="text-sm text-gray-500">Trusted teacher materials • Kenya</div>
+              <div class="text-sm text-gray-300">Trusted teacher materials • Kenya</div>
             </div>
           </a>
         </div>
         <div>
           <div class="font-semibold">Quick links</div>
-          <ul class="mt-3 space-y-2 text-sm text-gray-600">
+          <ul class="mt-3 space-y-2 text-sm text-gray-300">
             <li><a href="materials.html">Browse Materials</a></li>
             <li><a href="upload.html">Become a Teacher</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -274,8 +255,8 @@ Notes:
         </div>
         <div>
           <div class="font-semibold">Contact</div>
-          <div class="mt-3 text-sm text-gray-600">Email: <a href="mailto:hello@masomoarena.example" class="text-masomo-blue">hello@masomoarena.example</a></div>
-          <div class="mt-4 text-sm text-gray-600">Built for Kenyan learners. © <span id="year"></span> Masomo Arena</div>
+          <div class="mt-3 text-sm text-gray-300">Email: <a href="mailto:hello@masomoarena.example" class="text-masomo-blue">hello@masomoarena.example</a></div>
+          <div class="mt-4 text-sm text-gray-300">Built for Kenyan learners. © <span id="year"></span> Masomo Arena</div>
         </div>
       </div>
     </footer>
